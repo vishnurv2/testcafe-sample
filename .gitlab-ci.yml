@@ -1,0 +1,13 @@
+
+before_script:
+  - |
+    cd /builds/vishnurv2/testcafe-sample
+    echo 'export LT_USERNAME="vishnurv2"' >> ~/.bashrc
+    echo 'export LT_ACCESS_KEY="40fkQ3JuRlYMzd4ff7uqkqXCTnwvvkEB7FWJz1sLS2qSqoEDal"' >> ~/.bashrc
+    npm install -g testcafe 
+    npm install 
+    testcafe -b lambdatest
+  
+job:
+  script:
+    testcafe "lambdatest:Chrome@85.0:Windows 10" "test.js"
